@@ -1,0 +1,8 @@
+{
+  "name": "CanuckMacro - Canadian Fast Food Nutrition & Cost Tracker",
+  "description": "Nutritional database for major and minor Canadian fast food chains. Effortlessly build orders, track daily calories and macronutrients, and monitor dining costs in CAD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
