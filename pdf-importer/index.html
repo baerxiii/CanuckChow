@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CanuckChow PDF Importer</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>CanuckChow PDF Importer</h1>
+
+    <input type="file" id="pdfFile" accept=".pdf">
+
+    <button id="extractBtn">
+        Extract Data
+    </button>
+
+    <h2>JSON Preview</h2>
+
+    <textarea
+        id="output"
+        rows="25"
+    ></textarea>
+
+    <button id="downloadBtn">
+        Download JSON
+    </button>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
