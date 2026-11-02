@@ -58,3 +58,83 @@ async function extractPDF() {
 
     reader.readAsArrayBuffer(file);
 }
+
+function extractNutritionItems(text){
+
+    const items = [];
+
+    const lines =
+        text.split("\n");
+
+    lines.forEach(line=>{
+
+        const calories =
+            line.match(/\b(\d+)\s*cal/i);
+
+        if(!calories){
+            return;
+        }
+
+        const item = {
+
+            name:
+                line.split(calories[0])[0]
+                .trim(),
+
+            chainId:
+                "tim-hortons",
+
+            category:
+                "unknown",
+
+            calories:
+                Number(calories[1]),
+
+            protein:
+                null,
+
+            carbs:
+                null,
+
+            totalFat:
+                null,
+
+            sodium:
+                null,
+
+            priceCAD:
+                null
+        };
+
+        items.push(item);
+
+    });
+
+    return items;
+}
+
+document
+.getElementById("downloadBtn")
+.addEventListener("click", ()=>{
+
+    const blob =
+        new Blob(
+            [output.value],
+            {
+                type:
+                "application/json"
+            }
+        );
+
+    const a =
+        document.createElement("a");
+
+    a.href =
+        URL.createObjectURL(blob);
+
+    a.download =
+        "canuckchow-import.json";
+
+    a.click();
+});
+
